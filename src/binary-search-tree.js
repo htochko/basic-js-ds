@@ -12,7 +12,7 @@ class BinarySearchTree {
   }
 
   add(data) {
-    const newNode = new Node(value);
+    const newNode = new Node(data);
 
     if (!this.root) {
       this.root = newNode;
@@ -21,9 +21,9 @@ class BinarySearchTree {
 
     let current = this.root;
     while (true) {
-      if (value === current.value) return undefined; // Ignore duplicates
+      if (data === current.data) return undefined; // Ignore duplicates
       
-      if (value < current.value) {
+      if (data < current.data) {
         if (!current.left) {
           current.left = newNode;
           return this;
@@ -40,18 +40,33 @@ class BinarySearchTree {
   }
 
   find(data) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+    let current = this.root;
+    while (current) {
+      if (data === current.data) return current;
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return null;
   }
 
   has(data) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+    let current = this.root;
+    while (current) {
+      if (data === current.data) return true;
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
   }
 
   remove(data) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+
   }
 
   min() {
